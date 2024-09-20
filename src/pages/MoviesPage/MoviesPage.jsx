@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { searchMovies } from '../../../services/api';
+import { searchMovies } from '../../services/api';
 import MovieList from '../MovieList/MovieList';
 
 const MoviesPage = () => {

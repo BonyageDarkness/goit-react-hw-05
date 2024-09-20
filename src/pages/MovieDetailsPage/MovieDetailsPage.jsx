@@ -6,7 +6,7 @@ import {
     useNavigate,
     useLocation,
 } from 'react-router-dom';
-import { fetchMovieDetails } from '../../../services/api';
+import { fetchMovieDetails } from '../../services/api';
 
 const MovieDetailsPage = () => {
     const { movieId } = useParams();
