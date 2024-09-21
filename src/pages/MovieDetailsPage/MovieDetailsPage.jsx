@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import {
     useParams,
     Link,
@@ -13,9 +13,9 @@ const MovieDetailsPage = () => {
     const [movie, setMovie] = useState(null);
     const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
 
-    // Для возврата на предыдущую страницу
     const navigate = useNavigate();
     const location = useLocation();
+    const locationRef = useRef(location.state?.from || '/');
 
     useEffect(() => {
         fetchMovieDetails(movieId).then(setMovie);
@@ -24,7 +24,7 @@ const MovieDetailsPage = () => {
     if (!movie) return <div>Loading...</div>;
 
     const handleGoBack = () => {
-        navigate(location.state?.from || '/movies');
+        navigate(locationRef.current);
     };
 
     return (

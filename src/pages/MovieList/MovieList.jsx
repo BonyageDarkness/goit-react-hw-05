@@ -1,14 +1,15 @@
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const MovieList = ({ movies }) => {
+    const location = useLocation();
     const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
 
     return (
         <ul>
             {movies.map((movie) => (
                 <li key={movie.id}>
-                    <Link to={`/movies/${movie.id}`}>
+                    <Link to={`/movies/${movie.id}`} state={{ from: location }}>
                         <h2>{movie.title}</h2>
 
                         {movie.poster_path ? (
